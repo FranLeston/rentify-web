@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { usersService } from "../../services";
+import { Link, NavLink, withRouter } from "react-router-dom";
 
 class LandlordNav extends Component {
   render() {
@@ -9,7 +10,7 @@ class LandlordNav extends Component {
       <div className="section">
         <div className="block">
           <div className="columns">
-            <div className="column is-4">
+            <div className="column is-2">
               <aside className="menu">
                 <p className="menu-label">You</p>
                 <ul className="menu-list">
@@ -17,7 +18,7 @@ class LandlordNav extends Component {
                     <a heref="">Dashboard</a>
                   </li>
                   <li>
-                    <a heref="">Me</a>
+                  <Link to="/users/new-contract">Create Contract</Link>
                   </li>
 
                   <li>

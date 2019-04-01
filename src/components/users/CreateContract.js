@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect, Link } from "react-router-dom";
+import { Link, NavLink, withRouter } from "react-router-dom";
 import authService from "../../services/auth-service";
 
 // eslint-disable-next-line no-useless-escape
@@ -38,13 +38,12 @@ const validations = {
   }
 };
 
-export default class Register extends Component {
+export default class CreateContract extends Component {
   state = {
     user: {
       name: "",
       email: "",
-      password: "",
-      role: "tenant"
+      password: ""
     },
     errors: {
       name: validations.name(),
@@ -57,8 +56,6 @@ export default class Register extends Component {
 
   handleChange = event => {
     const { name, value } = event.target;
-    console.log(name);
-    console.log(value);
     this.setState({
       user: {
         ...this.state.user,
@@ -110,7 +107,6 @@ export default class Register extends Component {
   render() {
     const { isRegistered, errors, user, touch } = this.state;
     if (isRegistered) {
-      return <Redirect to="/login" />;
     }
 
     return (
@@ -207,10 +203,11 @@ export default class Register extends Component {
                                 errors.role &&
                                 "is-danger"}`}
                               name="role"
-                              value="landlord"
-                              checked={user.role === 'landlord'}
-                              onChange={this.handleChange}
-                            /> I am a Landlord
+                              checked
+                              value={user.role}
+                              onBlur={this.handleBlur}
+                            />{" "}
+                            I am a Landlord
                           </label>
                           <label className="radio">
                             <input
@@ -219,10 +216,10 @@ export default class Register extends Component {
                                 errors.role &&
                                 "is-danger"}`}
                               name="role"
-                              value="tenant"
-                              checked={user.role === 'tenant'}
-                              onChange={this.handleChange}
-                            /> I am a Tenant
+                              value={user.role}
+                              onBlur={this.handleBlur}
+                            />{" "}
+                            I am a Tenant
                           </label>
                         </div>
                       </div>

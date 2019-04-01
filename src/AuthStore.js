@@ -20,7 +20,7 @@ class AuthStore extends Component {
   }
 
   isAuthenticated = () => this.state.user && this.state.user.email;
-  isAdmin = () => this.state.user && this.state.user.role === 'admin';
+  isAdmin = () => this.state.user && this.state.user.role === 'landlord';
 
   render() {
     return (

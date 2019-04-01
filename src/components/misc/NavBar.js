@@ -35,43 +35,89 @@ class NavBar extends Component {
 
               <div id="navbarBasicExample" className="navbar-menu">
                 <div className="navbar-start">
-                  <a className="navbar-item">For Landlords</a>
-
-                  <a className="navbar-item">{user.email}</a>
-
-                  <a className="navbar-item">For Tenants</a>
-                  <a className="navbar-item">{user.email}</a>
+                  {isAuthenticated() && (
+                    <Fragment>
+                      <span className="navbar-item">
+                        Hello {user.name}, you are a{" "}
+                        {user.role.charAt(0).toUpperCase() + user.role.slice(1)}
+                      </span>
+                    </Fragment>
+                  )}
                 </div>
-
                 <div className="navbar-end">
                   <div className="navbar-item">
                     <div className="buttons">
-                      {!isAuthenticated() && (
-                        <Fragment>
-                          <a className="button is-info is-inverted">
-                            <NavLink
-                              className="nav-link"
-                              activeClassName="active"
-                              to="/register"
-                            >
-                              Register
-                            </NavLink>
-                          </a>
-                        </Fragment>
-                      )}
                       {isAuthenticated() && (
                         <Fragment>
-                          <a className="button is-info is-inverted">
-                            <NavLink
-                              className="nav-link"
-                              activeClassName="active"
-                              to="/login"
+                          <div class="dropdown is-hoverable">
+                            <div class="dropdown-trigger">
+                              <button
+                                class="button"
+                                aria-haspopup="true"
+                                aria-controls="dropdown-menu"
+                              >
+                                <span>{user.email}</span>
+                                <span class="icon is-small">
+                                  <i
+                                    class="fas fa-angle-down"
+                                    aria-hidden="true"
+                                  />
+                                </span>
+                              </button>
+                            </div>
+                            <div
+                              class="dropdown-menu"
+                              id="dropdown-menu"
+                              role="menu"
                             >
-                              Login
-                            </NavLink>
-                          </a>
+                              <div class="dropdown-content">
+                                <a href="#" class="dropdown-item">
+                                  Edit Profile
+                                </a>
+                                <a class="dropdown-item">
+                                  <NavLink
+                                    className="nav-link"
+                                    onClick={this.handleLogout}
+                                    activeClassName="active"
+                                    to="/logout"
+                                  >
+                                    Logout
+                                  </NavLink>
+                                </a>
+                                <hr class="dropdown-divider" />
+                                <span class="dropdown-item">
+                                  {user.role.charAt(0).toUpperCase() +
+                                    user.role.slice(1)}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
                         </Fragment>
                       )}
+                      <div className="buttons">
+                        {!isAuthenticated() && (
+                          <Fragment>
+                            <a className="button is-info is-inverted">
+                              <NavLink
+                                className="nav-link"
+                                activeClassName="active"
+                                to="/login"
+                              >
+                                Login
+                              </NavLink>
+                            </a>
+                            <a className="button is-info is-inverted">
+                              <NavLink
+                                className="nav-link"
+                                activeClassName="active"
+                                to="/register"
+                              >
+                                Register
+                              </NavLink>
+                            </a>
+                          </Fragment>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
