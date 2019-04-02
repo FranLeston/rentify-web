@@ -7,10 +7,6 @@ class LandlordNav extends Component {
     const { id, name, email, role } = this.props;
 
     return (
-      <div className="section">
-        <div className="block">
-          <div className="columns">
-            <div className="column is-2">
               <aside className="menu">
                 <p className="menu-label">You</p>
                 <ul className="menu-list">
@@ -40,10 +36,8 @@ class LandlordNav extends Component {
                   </li>
                 </ul>
               </aside>
-            </div>
-          </div>
-        </div>
-      </div>
+            
+      
     );
   }
 }

@@ -110,138 +110,74 @@ export default class CreateContract extends Component {
     }
 
     return (
-      <div className="register">
-        <div className="columns is-centered">
-          <div className="column is-two-thirds">
-            <div className="block">
-              <div className="box">
-                <form onSubmit={this.handleSubmit}>
-                  <div class="field">
-                    <label class="label">Your Name</label>
-                    <div class="control has-icons-left has-icons-right">
-                      <input
-                        type="text"
-                        className={`input ${touch.name &&
-                          errors.name &&
-                          "is-success"}`}
-                        name="name"
-                        placeholder="Name"
-                        onChange={this.handleChange}
-                        value={user.name}
-                        onBlur={this.handleBlur}
-                      />
 
-                      <span class="icon is-small is-left">
-                        <i class="fas fa-user" />
-                      </span>
-                      <span class="icon is-small is-right">
-                        <i class="fas fa-check" />
-                      </span>
-                    </div>
-                    <p class="help is-success">{errors.name}</p>
-                  </div>
-
-                  <div className="field">
-                    <label className="label">Email</label>
-
-                    <div className="control has-icons-left has-icons-right">
-                      <input
-                        type="text"
-                        className={`input ${touch.email &&
-                          errors.email &&
-                          "is-danger"}`}
-                        name="email"
-                        placeholder="Email"
-                        onChange={this.handleChange}
-                        value={user.email}
-                        onBlur={this.handleBlur}
-                      />
-
-                      <span className="icon is-small is-left">
-                        <i className="fas fa-envelope" />
-                      </span>
-                      <span className="icon is-small is-right">
-                        <i className="fas fa-exclamation-triangle" />
-                      </span>
-                    </div>
-                    <p className="help is-danger">{errors.email}</p>
-                  </div>
-
-                  <div className="field">
-                    <label className="label">Password</label>
-                    <div className="control has-icons-left has-icons-right">
-                      <input
-                        type="password"
-                        className={`input ${touch.password &&
-                          errors.password &&
-                          "is-danger"}`}
-                        name="password"
-                        placeholder="Password"
-                        onChange={this.handleChange}
-                        value={user.password}
-                        onBlur={this.handleBlur}
-                      />
-
-                      <span className="icon is-small is-left">
-                        <i className="fas fa-lock" />
-                      </span>
-                      <span className="icon is-small is-right">
-                        <i className="fas fa-check" />
-                      </span>
-                    </div>
-                    <p className="help is-danger">{errors.password}</p>
-                  </div>
-
-                  <div className="columns is-centered">
-                    <div className="field">
-                      <div className="column is-full">
-                        <div className="control ">
-                          <label className="radio">
-                            <input
-                              type="radio"
-                              className={`${touch.role &&
-                                errors.role &&
-                                "is-danger"}`}
-                              name="role"
-                              checked
-                              value={user.role}
-                              onBlur={this.handleBlur}
-                            />{" "}
-                            I am a Landlord
-                          </label>
-                          <label className="radio">
-                            <input
-                              type="radio"
-                              className={`${touch.role &&
-                                errors.role &&
-                                "is-danger"}`}
-                              name="role"
-                              value={user.role}
-                              onBlur={this.handleBlur}
-                            />{" "}
-                            I am a Tenant
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="field is-grouped">
-                    <div className="control">
-                      <button
-                        className="button is-info"
-                        disabled={!this.isValid()}
-                      >
-                        Register
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
+      <form onSubmit={this.handleSubmit}>
+        <div className="field">
+          <label className="label">Tenant's Email</label>
+          <div className="control">
+            <input className="input" type="text" placeholder="Email" />
           </div>
         </div>
-      </div>
+
+        <div className="field">
+          <label className="label">Tenant's Address</label>
+          <div className="control">
+            <input className="input" type="text" placeholder="Tenants Address" />
+          </div>
+        </div>
+
+        <div className="field">
+          <label className="label">Property Registry Number</label>
+          <div className="control">
+            <input className="input" type="text" placeholder="Registry Number" />
+          </div>
+        </div>
+
+        <div className="field">
+          <label className="label">Additional Info</label>
+          <div className="control">
+            <textarea className="textarea" placeholder="Additional Info" />
+          </div>
+        </div>
+
+        <div className="field has-addons has-addons-left">
+  <p className="control">
+    <span className="select">
+      <select>
+        <option>$</option>
+        <option>£</option>
+        <option>€</option>
+      </select>
+    </span>
+  </p>
+  <p className="control">
+    <input className="input" type="text" placeholder="Monthly Rent Amount"/>
+  </p>
+</div>
+
+        <div className="file has-name">
+  <label className="file-label">
+    <input className="file-input" type="file" name="resume"/>
+    <span className="file-cta">
+      <span className="file-icon">
+        <i className="fas fa-upload"></i>
+      </span>
+      <span className="file-label">
+        Upload a a contract...
+      </span>
+    </span>
+    <span className="file-name">
+      ContractForMatthew.pdf
+    </span>
+  </label>
+</div>
+<hr/>
+        <div className="field is-grouped">
+          <div className="control">
+            <button className="button is-link">Submit</button>
+          </div>
+        </div>
+      </form>
     );
   }
 }
