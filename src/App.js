@@ -7,6 +7,10 @@ import UserList from "./components/users/UserList";
 import LandlordNav from "./components/users/Landlordnav";
 import CreateContract from "./components/users/CreateContract";
 import LandordMain from "./components/LandordMain";
+import Dashboard from "./components/users/Dashboard";
+import ContractItem from "./components/users/ContractItem";
+
+
 
 
 class App extends Component {
@@ -18,9 +22,8 @@ class App extends Component {
         <Switch>
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
-          {/* <Route exact path="/users" component={LandlordNav} /> */}
           <Route path="/users" component={LandordMain} />
-          {/* <Route exact path="/contract" component={CreateContract}/> */}
+          <Route path="/users/dashboard" component={Dashboard} />
           <Redirect to="/login" />
         </Switch>
       </div>

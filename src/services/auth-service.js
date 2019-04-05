@@ -9,6 +9,9 @@ const register = (user) => http.post('/register', user)
 const logout = () => http.get('/logout')
   .then(response => response.data);
 
+
+
+
 export default {
   authenticate,
   register,

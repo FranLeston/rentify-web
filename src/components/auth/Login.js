@@ -95,7 +95,7 @@ class Login extends Component {
   render() {
     const { isAuthenticated, errors, user, touch } = this.state;
     if (isAuthenticated) {
-      return <Redirect to="/users" />;
+      return <Redirect to="/users/dashboard" />;
     }
 
     return (
