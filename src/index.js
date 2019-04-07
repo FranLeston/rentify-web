@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import 'bulma-calendar/dist/css/bulma-calendar.min.css';
 import "bulma/css/bulma.css";
 import "font-awesome/css/font-awesome.min.css";
 import "./index.css";

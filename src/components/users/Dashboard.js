@@ -2,29 +2,31 @@ import React, { Component } from "react";
 import { usersService } from "../../services";
 import { Link, NavLink, withRouter } from "react-router-dom";
 import contractService from "../../services/contracts-service";
-import ContractItem from './ContractItem';
-import { withAuthConsumer } from '../../contexts/AuthStore';
-
+import ContractItem from "./ContractItem";
+import { withAuthConsumer } from "../../contexts/AuthStore";
 
 class Dashboard extends Component {
   state = {
     contracts: []
-  }
-
+  };
+  3;
   componentDidMount() {
-    contractService.list()
-      .then(contracts => this.setState({ contracts: contracts }))
+    contractService
+      .list()
+      .then(contracts => this.setState({ contracts: contracts }));
   }
 
-  handleDeleteContract = (id) => {
-    this.setState({ contracts: this.state.contracts.filter(contract => contract.id !== id) })
-  }
+  handleDeleteContract = id => {
+    this.setState({
+      contracts: this.state.contracts.filter(contract => contract.id !== id)
+    });
+  };
 
   render() {
+    const contracts = this.state.contracts.map(contract => (
+      <ContractItem key={contract.id} {...contract} />
+    ));
 
-    const contracts = this.state
-      .contracts
-      .map(contract => (<ContractItem key={contract.id} {...contract} />));
     return (
       <section className="section">
         <div className="columns is-2">
@@ -44,26 +46,18 @@ class Dashboard extends Component {
               </header>
               <div className="card-content">
                 <div className="content">
-                <ul className="list-group mt-5">
-            {contracts}
-          </ul>
-                  <a href="#">@bulmaio</a>. <a href="#">#css</a>{" "}
-                  <a href="#">#responsive</a>
-                  <br />
-                  <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                  {contracts}
+                  
                 </div>
+                <footer class="card-footer">
+    <p class="card-footer-item">
+      <span>
+      <a href="users/properties">See All</a>
+      </span>
+    </p>
+  </footer>
               </div>
-              <footer className="card-footer">
-                <a href="#" className="card-footer-item">
-                  Save
-                </a>
-                <a href="#" className="card-footer-item">
-                  Edit
-                </a>
-                <a href="#" className="card-footer-item">
-                  Delete
-                </a>
-              </footer>
+              
             </div>
           </div>
           <div className="column">
@@ -104,7 +98,7 @@ class Dashboard extends Component {
             </div>
           </div>
         </div>
-        
+
         <div className="columns is-2">
           <div className="column">
             <div className="card">
@@ -181,10 +175,9 @@ class Dashboard extends Component {
             </div>
           </div>
         </div>
-        
       </section>
     );
   }
 }
 
-export default withAuthConsumer(Dashboard)
+export default Dashboard;

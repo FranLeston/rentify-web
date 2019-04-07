@@ -15,7 +15,7 @@ class NavBar extends Component {
     const { user, isAuthenticated, isAdmin } = this.props;
 
     return (
-      <div className="container">
+     
         <div className="columns is-centered">
           <div className="column is-12">
             <nav
@@ -125,7 +125,7 @@ class NavBar extends Component {
             </nav>
           </div>
         </div>
-      </div>
+      
     );
   }
 }

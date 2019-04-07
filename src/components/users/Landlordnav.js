@@ -4,21 +4,25 @@ import { Link, NavLink, withRouter } from "react-router-dom";
 
 class LandlordNav extends Component {
   render() {
-    const { id, name, email, role } = this.props;
 
     return (
       <aside className="menu">
         <p className="menu-label">You</p>
         <ul className="menu-list">
           <li>
-            <Link to="/users/dashboard">Dashboard</Link>
+            <NavLink className="button is-rounded is-light" activeClassName="button is-rounded is-link" to="/users/dashboard">Dashboard</NavLink>
           </li>
+          <br/>
           <li>
-            <Link to="/users/new-contract">Create Contract</Link>
+            <NavLink className="button is-rounded is-light" activeClassName="button is-rounded is-link" to="/users/new-contract">Create Contract</NavLink>
           </li>
-
+          <br/>
           <li>
-            <a heref="">My Documents</a>
+          <NavLink className="button is-rounded is-light" activeClassName="button is-rounded is-link" to="/users/properties">My Properties</NavLink>
+          </li>
+          <br/>
+          <li>
+          <NavLink className="button is-rounded is-light" activeClassName="button is-rounded is-link" to="/users/my-docs">My Documents</NavLink>
           </li>
         </ul>
         <hr />
@@ -27,10 +31,11 @@ class LandlordNav extends Component {
           <li>
             <a heref="">Contracts</a>
           </li>
+          <br/>
           <li>
             <a heref="">Tenants</a>
           </li>
-
+          <br/>
           <li>
             <a heref="">Other</a>
           </li>

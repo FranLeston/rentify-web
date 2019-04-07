@@ -32,7 +32,7 @@ const validations = {
   role: value => {
     let message;
     if (!value) {
-      message = "I am a Landlord";
+      message = "landlord";
     }
     return message;
   }
@@ -49,10 +49,10 @@ export default class Register extends Component {
     errors: {
       name: validations.name(),
       email: validations.email(),
-      password: validations.password()
+      password: validations.password(),
     },
     touch: {},
-    isRegistered: false
+    isAuthenticated: false
   };
 
   handleChange = event => {
@@ -85,7 +85,7 @@ export default class Register extends Component {
     event.preventDefault();
     if (this.isValid()) {
       authService.register(this.state.user).then(
-        user => this.setState({ isRegistered: true }),
+        user => this.setState({ isAuthenticated: true }),
         error => {
           const { message, errors } = error.response.data;
           this.setState({
@@ -108,8 +108,8 @@ export default class Register extends Component {
   };
 
   render() {
-    const { isRegistered, errors, user, touch } = this.state;
-    if (isRegistered) {
+    const { isAuthenticated, errors, user, touch } = this.state;
+    if (isAuthenticated) {
       return <Redirect to="/login" />;
     }
 

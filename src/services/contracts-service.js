@@ -1,30 +1,39 @@
-import http from './base-http-service';
+import http from "./base-http-service";
 
-const createContract = (contract) => {
+const createContract = contract => {
   const data = new FormData();
   Object.keys(contract).forEach(key => {
     data.append(key, contract[key]);
-  })
-  console.log(data)
-  console.log(data.get('attachment'))
+  });
   const config = {
     headers: {
-      'content-type': 'multipart/form-data'
+      "content-type": "multipart/form-data"
     }
-  } 
-  return http.post('/contract', data, config)
-  .then(response => response.data);
-}
-  const deleteContract = (id) => http.delete(`/contract/${id}`)
-  .then(response => response.data);
+  };
+  return http.post("/contract", data, config).then(response => response.data);
+};
+const deleteContract = id =>
+  http.delete(`/contract/${id}`).then(response => response.data);
 
-  const list = () => http.get('/contract')
-  .then(response => response.data);
+const list = () => http.get("/contract").then(response => response.data);
 
+const getContract = id =>
+  http.get(`/contract/${id}`).then(response => response.data);
+
+const updateContract = (id, contract) => {
+  const data = new FormData();
+
+  Object.keys(contract).forEach(key => {
+    data.append(key, contract[key]);
+  });
+
+  return http.put(`/contract/${id}`, data).then(response => response.data);
+};
 
 export default {
   createContract,
   deleteContract,
-  list
-
-}
+  list,
+  getContract,
+  updateContract
+};
