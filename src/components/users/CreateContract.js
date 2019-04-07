@@ -63,7 +63,14 @@ const validations = {
       message = "Add Contract End Date";
     }
     return message;
-  }
+  },
+  deposit: value => {
+    let message;
+    if (!value) {
+      message = "Enter Initial Deposit";
+    }
+    return message;
+  },
 };
 
 const defaultState = {
@@ -75,16 +82,16 @@ const defaultState = {
     rentPrice: "",
     attachment: "",
     startDate: "",
-    endDate: ""
+    endDate: "",
+    deposit: ""
   },
   errors: {
     tenantEmail: validations.tenantEmail(),
     address: validations.address(),
     regNumber: validations.regNumber(),
     rentPrice: validations.rentPrice(),
-    info: validations.info()
-
-    // contractURL: validations.contractURL()
+    info: validations.info(),
+    deposit: validations.deposit()
   },
   touch: {},
   isSuccess: false
@@ -327,8 +334,9 @@ export default class CreateContract extends Component {
               </div>
               <p className="help is-danger">{errors.info}</p>
             </div>
-
+<label className="label">Rent Price</label>
             <div className="field has-addons has-addons-left">
+            
               <p className="control">
                 <span className="select">
                   <select>
@@ -351,6 +359,33 @@ export default class CreateContract extends Component {
               </p>
             </div>
             <p className="help is-danger">{errors.rentPrice}</p>
+
+            <label className="label">Deposit Amount</label>
+            <div className="field has-addons has-addons-left">
+         
+              <p className="control">
+                <span className="select">
+                  <select>
+                    <option>€</option>
+                  </select>
+                </span>
+              </p>
+              <p className="control">
+                <input
+                  className={`input ${touch.deposit &&
+                    errors.name &&
+                    "is-success"}`}
+                  name="deposit"
+                  value={contract.deposit}
+                  type="text"
+                  placeholder="Initial Deposit Amount"
+                  onChange={this.handleChange}
+                  onBlur={this.handleBlur}
+                />
+              </p>
+            </div>
+            <p className="help is-danger">{errors.deposit}</p>
+
 
             <div className="file is-info has-name">
               <label className="file-label">

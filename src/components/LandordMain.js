@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import CreateContract from "./users/CreateContract";
 import Dashboard from "./users/Dashboard";
 import ContractItem from "./users/ContractItem";
+import Properties from "./users/Properties";
 
 const LandordMain = () => {
   return (
@@ -15,6 +16,8 @@ const LandordMain = () => {
         <Route exact path="/users/new-contract" component={CreateContract} />
         <Route exact path="/users/edit-contract/:id" component={CreateContract} />
         <Route exact path="/users/dashboard" component={Dashboard} />
+        <Route exact path="/users/properties" component={Properties} />
+
       </Switch>
     </div>
   );

@@ -9,7 +9,7 @@ class Dashboard extends Component {
   state = {
     contracts: []
   };
-  3;
+  
   componentDidMount() {
     contractService
       .list()
