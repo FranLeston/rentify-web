@@ -12,7 +12,7 @@ class Properties extends Component {
 
   componentDidMount() {
     contractService
-      .list()
+      .listOwn()
       .then(contracts => this.setState({ contracts: contracts }));
   }
 
@@ -27,7 +27,7 @@ class Properties extends Component {
       <DetailedContract key={contract.id} {...contract} />
     ));
 
-    return <div className="column is-flexible">{contracts}</div>;
+    return <div className="column is-offset-1 is-8">{contracts}</div>;
   }
 }
 

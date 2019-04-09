@@ -44,12 +44,14 @@ export default class Register extends Component {
       name: "",
       email: "",
       password: "",
-      role: "tenant"
+      role: "landlord"
     },
     errors: {
       name: validations.name(),
       email: validations.email(),
       password: validations.password(),
+     
+
     },
     touch: {},
     isAuthenticated: false

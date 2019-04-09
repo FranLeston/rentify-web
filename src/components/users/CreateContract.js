@@ -198,6 +198,7 @@ export default class CreateContract extends Component {
     }
 
     return (
+      
       <div className="column is-offset-2 is-6">
         <div className="box">
           <form onSubmit={this.handleSubmit}>
@@ -414,6 +415,7 @@ export default class CreateContract extends Component {
           </form>
         </div>
       </div>
+      
     );
   }
 }

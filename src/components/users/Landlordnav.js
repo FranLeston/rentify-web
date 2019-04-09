@@ -1,16 +1,19 @@
-import React, { Component } from "react";
+import React, { Fragment, Component } from "react";
 import { usersService } from "../../services";
 import { Link, NavLink, withRouter } from "react-router-dom";
+import { withAuthConsumer } from "../../contexts/AuthStore";
+import { authService } from "../../services";
 
 class LandlordNav extends Component {
   render() {
+    const { user, isAuthenticated, isAdmin } = this.props;
+
     return (
       <aside className="menu">
         <p className="menu-label">You</p>
         <ul className="menu-list">
           <li>
             <NavLink
-            
               className="button is-rounded is-light"
               activeClassName="button is-rounded is-link"
               to="/users/dashboard"
@@ -22,34 +25,63 @@ class LandlordNav extends Component {
             </NavLink>
           </li>
           <br />
-          <li>
-          <NavLink
-              className="button is-rounded is-light"
-              activeClassName="button is-rounded is-link"
-              to="/users/new-contract"
-            >
-              <span className="icon">
-                <i className="fas fa-file-signature" />
-              </span>
-              <span>New Contract</span>
-            </NavLink>
-          </li>
+          {isAdmin() && (
+            <Fragment>
+              <li>
+                <NavLink
+                  className="button is-rounded is-light"
+                  activeClassName="button is-rounded is-link"
+                  to="/users/new-contract"
+                >
+                  <span className="icon">
+                    <i className="fas fa-file-signature" />
+                  </span>
+                  <span>New Contract</span>
+                </NavLink>
+              </li>
+            </Fragment>
+          )}
+
+          <br />
+
+          {!isAdmin() && (
+            <Fragment>
+              <li>
+                <NavLink
+                  className="button is-rounded is-light"
+                  activeClassName="button is-rounded is-link"
+                  to="/users/my-rent"
+                >
+                  <span className="icon">
+                    <i className="fas fa-money-check-alt" />
+                  </span>
+                  <span>My Rent</span>
+                </NavLink>
+              </li>
+            </Fragment>
+          )}
+
+          <br />
+
+          {isAdmin() && (
+            <Fragment>
+              <li>
+                <NavLink
+                  className="button is-rounded is-light"
+                  activeClassName="button is-rounded is-link"
+                  to="/users/properties"
+                >
+                  <span className="icon">
+                    <i className="fas fa-building" />
+                  </span>
+                  <span>Properties</span>
+                </NavLink>
+              </li>
+            </Fragment>
+          )}
           <br />
           <li>
-          <NavLink
-              className="button is-rounded is-light"
-              activeClassName="button is-rounded is-link"
-              to="/users/properties"
-            >
-              <span className="icon">
-                <i className="fas fa-building" />
-              </span>
-              <span>Properties</span>
-            </NavLink>
-          </li>
-          <br />
-          <li>
-          <NavLink
+            <NavLink
               className="button is-rounded is-light"
               activeClassName="button is-rounded is-link"
               to="/users/my-docs"
@@ -81,4 +113,4 @@ class LandlordNav extends Component {
   }
 }
 
-export default LandlordNav;
+export default withRouter(withAuthConsumer(LandlordNav));

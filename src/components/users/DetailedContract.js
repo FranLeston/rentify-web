@@ -22,6 +22,7 @@ class ContractItem extends Component {
     } = this.props;
 
     return (
+      
       <div className="box" keykey={id}>
         <div className="card">
           <header className="card-header">
@@ -47,33 +48,55 @@ class ContractItem extends Component {
                 <div className="column">
                   <strong>Tenant Email:</strong> {tenantEmail}
                   <br />
-                  <strong>Contract Started:</strong> {startDate}
+                  <strong>Contract Started: </strong>
+                  {startDate ? startDate.substring(0, 10) : ""}
                   <br />
-                  <strong>Contract Ends:</strong> {endDate}
+                  <strong>Contract Ends: </strong>{" "}
+                  {endDate ? endDate.substring(0, 10) : ""}
                   <br />
-                  <strong>Contract Document:</strong> <a href={contractURL}>Download</a>  
+                  <br />
+                  <strong>Contract Document:</strong>{" "}
+                  <a href ={contractURL}target="_blank">Download</a>
                 </div>
                 <div className="column">
                   <strong>Registry Number:</strong> {regNumber}
                   <br />
                   <strong>Additional Information:</strong> {info}
                   <br />
-                  <strong>Deposit: €</strong> {deposit}
+                  <strong>Deposit: </strong> €{deposit}
                   <br />
-                  <strong>Rent Price: €</strong> {rentPrice}
-
+                  <strong>Rent Price: </strong> €{rentPrice}
                 </div>
               </div>
             </div>
             <footer className="card-footer">
-   
-    <a href="#" className="card-footer-item">Edit</a>
-    <a href="#" className="card-footer-item">Delete</a>
-  </footer>
-</div>
+              <Link
+                to={`/users/edit-contract/${id}`}
+                className="card-footer-item"
+              >
+                <span className="tag is-warning">
+                
+                
+                  Edit
+                  <span className="icon">
+                    <i className="fas fa-edit" />
+                  </span>
+                </span>
+              </Link>
+              <Link
+                to={`/users/edit-contract/${id}`}
+                className="card-footer-item"
+              >
+                <span className="tag is-danger">
+                  Delete
+                  <button className="delete is-small" />
+                </span>
+              </Link>
+            </footer>
           </div>
         </div>
-      
+      </div>
+     
     );
   }
 }

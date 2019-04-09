@@ -30,10 +30,17 @@ const updateContract = (id, contract) => {
   return http.put(`/contract/${id}`, data).then(response => response.data);
 };
 
+const listOwn = () => http.get("/contract/own").then(response => response.data);
+
+const getTenantContract = () => http.get("/contract/rent").then(response => response.data);
+
+
 export default {
   createContract,
   deleteContract,
   list,
   getContract,
-  updateContract
+  updateContract,
+  listOwn,
+  getTenantContract
 };

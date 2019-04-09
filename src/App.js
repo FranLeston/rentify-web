@@ -16,7 +16,7 @@ import ContractItem from "./components/users/ContractItem";
 class App extends Component {
   render() {
     return (
-      <div className="container has-background-white-ter">
+      <div className="container is-fullhd has-background-white-ter">
         <NavBar />
         <Switch>
           <Route exact path="/register" component={Register} />
