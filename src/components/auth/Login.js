@@ -104,6 +104,20 @@ class Login extends Component {
           <div className="column is-4">
             <div className="block">
               <div className="box">
+                <div className="columns is-centered">
+                 
+                    <h4 className="title is-4">Login</h4>
+                    </div>
+                    <br />
+
+                    <div className="columns is-centered">
+                    <p>Welcome!</p>
+                    </div>
+
+                    <div className="columns is-centered">
+                    <p>Login to gain access to your account</p>
+                    </div>
+                 
                 <form onSubmit={this.handleSubmit}>
                   <div className="field">
                     <p className="control has-icons-left has-icons-right">
@@ -147,7 +161,7 @@ class Login extends Component {
                       <div className="is-danger">{errors.password}</div>
                     </p>
                   </div>
-                  
+
                   <div className="columns is-centered">
                     <div className="field">
                       <p className="control">
@@ -160,7 +174,7 @@ class Login extends Component {
                       </p>
                     </div>
                   </div>
-                  
+
                   <hr />
                   <p className="text-center">
                     Don't have an account? <Link to="/register">Sign up</Link>

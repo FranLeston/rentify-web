@@ -19,18 +19,19 @@ class NavBar extends Component {
         <div className="columns is-centered">
           <div className="column is-12">
             <nav
-              className="navbar is-link"
+              className="navbar is-info"
               role="navigation"
               aria-label="main navigation"
             >
               <div className="navbar-brand">
-                <a className="navbar-item" href="/">
+                <a className="navbar-item" href="/users/dashboard">
                   <img
-                    src="https://bulma.io/images/bulma-logo.png"
-                    width="112"
-                    height="28"
+                    src="https://res.cloudinary.com/skynet-franleston/image/upload/v1555091159/logo.png"
+                  
                   />
+                  <strong>RentApp</strong>
                 </a>
+                
               </div>
 
               <div id="navbarBasicExample" className="navbar-menu">

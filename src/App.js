@@ -9,6 +9,7 @@ import CreateContract from "./components/users/CreateContract";
 import LandordMain from "./components/LandordMain";
 import Dashboard from "./components/users/Dashboard";
 import ContractItem from "./components/users/ContractItem";
+import Landing from "./components/misc/Landing";
 
 
 
@@ -19,11 +20,13 @@ class App extends Component {
       <div className="container is-fullhd has-background-white-ter">
         <NavBar />
         <Switch>
+         <Route exact path="/landing" component={Landing} />
+
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
           <Route path="/users" component={LandordMain} />
           <Route path="/users/dashboard" component={Dashboard} />
-          <Redirect to="/login" />
+          <Redirect to="/landing" />
         </Switch>
       </div>
     );

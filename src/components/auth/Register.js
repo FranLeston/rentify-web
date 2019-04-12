@@ -118,9 +118,22 @@ export default class Register extends Component {
     return (
       <div className="register">
         <div className="columns is-centered">
-          <div className="column is-two-thirds">
+          <div className="column is-4">
             <div className="block">
               <div className="box">
+              <div className="columns is-centered">
+                 
+                    <h4 className="title is-4">Register</h4>
+                    </div>
+                    <br />
+
+                    <div className="columns is-centered">
+                    <p>Welcome!</p>
+                    </div>
+
+                    <div className="columns is-centered">
+                    <p>Sign up to get started</p>
+                    </div>
                 <form onSubmit={this.handleSubmit}>
                   <div class="field">
                     <label class="label">Your Name</label>
@@ -231,6 +244,8 @@ export default class Register extends Component {
                     </div>
                   </div>
 
+
+<div className="columns is-centered">
                   <div className="field is-grouped">
                     <div className="control">
                       <button
@@ -241,6 +256,12 @@ export default class Register extends Component {
                       </button>
                     </div>
                   </div>
+                  </div>
+                  <br/>
+                  <div className="columns is-centered">
+                  
+                  <h6 class="subtitle is-6">By signing up you agree to our terms and conditions</h6>
+</div>
                 </form>
               </div>
             </div>

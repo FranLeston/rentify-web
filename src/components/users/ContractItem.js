@@ -13,7 +13,7 @@ class ContractItem extends Component {
     return (
       <div className="box" keykey={id}>
        
-          <article class="message is-warning">
+          <article class="message is-info">
             <div class="message-header">
               <Link to={`/users/edit-contract/${id}`}>{address}</Link>
               <Link to={`/users/edit-contract/${id}`}>

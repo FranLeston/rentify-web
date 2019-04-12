@@ -5,7 +5,7 @@ import { authService } from "../../services";
 import contractService from "../../services/contracts-service";
 import { usersService } from '../../services';
 import UserItem from './UserItem';
-import RentItem from "./ContractItem";
+import PayRent from "./PayRent";
 
 
 class MyRent extends Component {
@@ -22,7 +22,7 @@ class MyRent extends Component {
   
   render() {
     const contracts = this.state.contracts.map(contract => (
-      <RentItem key={contract.id} {...contract} />
+      <PayRent key={contract.id} {...contract} />
       ));
 
 
@@ -30,8 +30,9 @@ class MyRent extends Component {
 
     return (
       <section className="section">
-        <div>  {contracts}</div>
-      
+        <div className="container">
+        {contracts}
+      </div>
       </section>
     );
   }

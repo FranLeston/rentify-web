@@ -15,7 +15,7 @@ class LandlordNav extends Component {
           <li>
             <NavLink
               className="button is-rounded is-light"
-              activeClassName="button is-rounded is-link"
+              activeClassName="button is-rounded is-info"
               to="/users/dashboard"
             >
               <span className="icon is-large">
@@ -25,22 +25,20 @@ class LandlordNav extends Component {
             </NavLink>
           </li>
           <br />
-          {isAdmin() && (
-            <Fragment>
+          
               <li>
                 <NavLink
                   className="button is-rounded is-light"
-                  activeClassName="button is-rounded is-link"
-                  to="/users/new-contract"
+                  activeClassName="button is-rounded is-info"
+                  to="/users/documents"
                 >
                   <span className="icon">
-                    <i className="fas fa-file-signature" />
+                    <i className="fas fa-folder-open" />
                   </span>
-                  <span>New Contract</span>
+                  <span>My Documents</span>
                 </NavLink>
               </li>
-            </Fragment>
-          )}
+            
 
           <br />
 
@@ -49,7 +47,7 @@ class LandlordNav extends Component {
               <li>
                 <NavLink
                   className="button is-rounded is-light"
-                  activeClassName="button is-rounded is-link"
+                  activeClassName="button is-rounded is-info"
                   to="/users/my-rent"
                 >
                   <span className="icon">
@@ -63,49 +61,69 @@ class LandlordNav extends Component {
 
           <br />
 
+       
+        </ul>
+        <hr />
+{!isAdmin() && (
+        <p class="menu-label">Home</p>
+)}
+{isAdmin() && (
+  <p class="menu-label">Properties</p>
+)}
+
+        <ul class="menu-list">
+
+        {!isAdmin() && (
+            <Fragment>
+              <li>
+                <NavLink
+                  className="button is-rounded is-light"
+                  activeClassName="button is-rounded is-info"
+                  to="/users/maintenance"
+                >
+                  <span className="icon">
+                    <i className="fas fa-wrench" />
+                  </span>
+                  <span>Maintenance Request</span>
+                </NavLink>
+              </li>
+            </Fragment>
+          )}
+
           {isAdmin() && (
             <Fragment>
               <li>
                 <NavLink
                   className="button is-rounded is-light"
-                  activeClassName="button is-rounded is-link"
-                  to="/users/properties"
+                  activeClassName="button is-rounded is-info"
+                  to="/users/new-contract"
                 >
                   <span className="icon">
-                    <i className="fas fa-building" />
+                    <i className="fas fa-file-signature" />
                   </span>
-                  <span>Properties</span>
+                  <span>New Contract</span>
                 </NavLink>
               </li>
             </Fragment>
           )}
-          <br />
           <li>
-            <NavLink
-              className="button is-rounded is-light"
-              activeClassName="button is-rounded is-link"
-              to="/users/my-docs"
-            >
-              <span className="icon">
-                <i className="fas fa-folder-open" />
-              </span>
-              <span>My Documents</span>
-            </NavLink>
-          </li>
-        </ul>
-        <hr />
-        <p className="menu-label">Your Tenants</p>
-        <ul className="menu-list">
-          <li>
-            <a heref="">Contracts</a>
-          </li>
-          <br />
-          <li>
-            <a heref="">Tenants</a>
-          </li>
-          <br />
-          <li>
-            <a heref="">Other</a>
+            <br />
+            {isAdmin() && (
+              <Fragment>
+                <li>
+                  <NavLink
+                    className="button is-rounded is-light"
+                    activeClassName="button is-rounded is-info"
+                    to="/users/properties"
+                  >
+                    <span className="icon">
+                      <i className="fas fa-building" />
+                    </span>
+                    <span>Properties</span>
+                  </NavLink>
+                </li>
+              </Fragment>
+            )}
           </li>
         </ul>
       </aside>
