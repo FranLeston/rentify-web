@@ -174,7 +174,7 @@ export default class CreateMaintenance extends Component {
                 />
 
                 <span className="icon is-small is-left">
-                  <i className="fas fa-envelope" />
+                  <i className="fas fa-sticky-note" />
                 </span>
                 <span className="icon is-small is-right">
                   <i className="fas fa-check" />
@@ -198,7 +198,7 @@ export default class CreateMaintenance extends Component {
                   placeholder="Description"
                 />
                 <span className="icon is-small is-left">
-                  <i className="fas fa-address-card" />
+                  <i className="fas fa-pencil-alt" />
                 </span>
                 <span className="icon is-small is-right">
                   <i className="fas fa-check" />
